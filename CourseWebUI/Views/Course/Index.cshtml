@@ -1,0 +1,26 @@
+﻿@model CourseWebUI.Models.CourseListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<img class="mx-auto d-block" src="~/Content/img/courses.png" style="width: 650px;height: 350px"/>
+@Html.ActionLink("Yeni Kurs Ekle","Add","Course",new {@class="btn btn-success"})
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Course Name</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var course in Model.Courses)
+    {
+        <tr>
+            <td>@course.Id</td>
+            <td>@course.CourseName</td>
+            <td>@course.Description</td>
+        </tr>
+    }
+    </tbody>
+</table>
